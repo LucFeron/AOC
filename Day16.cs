@@ -21,6 +21,16 @@ namespace Aoc2021
             //int sum = GetVersionSum(p);
             //Console.WriteLine(sum.ToString());
             Console.WriteLine(p.GetValue()); 
+            GetSubValues(p);
+        }
+
+        private static void GetSubValues(packet p)
+        {
+            
+            foreach (var sp in p.subpackets)
+            {
+                Console.WriteLine(sp.GetValue());
+            }
         }
 
         private static int GetVersionSum(packet p)

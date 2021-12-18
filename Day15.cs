@@ -263,6 +263,7 @@ namespace Aoc2021
                                 if (n.X == end.Item1 && n.Y == end.Item2)
                                 {
                                     best = current.CostOfCheapestPath + n.Cost;
+                                    Console.WriteLine(@$"Current best{best}");
                                     break;
                                 }
                             }
@@ -299,13 +300,11 @@ namespace Aoc2021
                 {
                     p.Value.Neighbors.Add((p.Key.Item1 - 1, p.Key.Item2));
                 }
-
                 if (res.ContainsKey((p.Key.Item1, p.Key.Item2 - 1)))
                 {
                     p.Value.Neighbors.Add((p.Key.Item1, p.Key.Item2 - 1));
                 }
-
-
+                p.Value.Neighbors.OrderBy(n => res[(n.Item1,n.Item2)].Cost - (n.Item1 + n.Item2));
             }
             return res;
         }
