@@ -17,5 +17,4 @@ namespace Aoc2021
         }
 
     }
-    public static class snailfish 
 }
